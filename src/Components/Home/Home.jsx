@@ -1,13 +1,23 @@
 import React from 'react';
 import { useLoaderData } from 'react-router-dom';
+import './Home.css'
+import Products from '../../Products/Products';
 
 const Home = () => {
 
     let data = useLoaderData();
 
     return (
-        <div>
-            <h2>home page {data.length}</h2>
+        <div className='home'>
+            <div className='productContainer'>
+                {
+                   data.map(product => <Products data={product} ></Products>) 
+                }
+            </div>
+
+            <div className='cartContainer'>
+                <h2> cart here    </h2>
+            </div>
         </div>
     );
 };
